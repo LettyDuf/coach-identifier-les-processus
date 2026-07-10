@@ -1,0 +1,145 @@
+.atelier-nav {
+  margin-bottom: var(--r-4);
+}
+
+.lien-retour {
+  background: none;
+  border: 1px solid var(--laiton-sombre);
+  border-radius: 999px;
+  color: var(--texte-clair);
+  padding: var(--r-2) var(--r-4);
+}
+
+.lien-retour:hover {
+  border-color: var(--laiton);
+}
+
+.atelier-header {
+  text-align: center;
+  margin-bottom: var(--r-8);
+}
+
+.atelier-surtitre {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--texte-sourd);
+  margin-bottom: var(--r-1);
+}
+
+.atelier-header h1 {
+  font-size: 2.2rem;
+  margin: 0 0 var(--r-2);
+}
+
+.atelier-baseline {
+  color: var(--texte-sourd);
+}
+
+.gestes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--r-6);
+}
+
+.geste {
+  border-radius: var(--rayon-grand);
+  padding: var(--r-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-3);
+}
+
+.geste h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.geste p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.geste-actif {
+  border: 2px solid var(--laiton);
+  background:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(230, 195, 126, 0.14), transparent 70%),
+    linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+}
+
+.geste-futur {
+  border: 2px dashed var(--laiton-sombre);
+  background: linear-gradient(180deg, var(--nuit-2), var(--nuit));
+  color: var(--texte-sourd);
+  opacity: 0.9;
+}
+
+.fondation-lien {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--r-2);
+  background: none;
+  border: 1px dashed var(--verre-sombre);
+  border-radius: 999px;
+  color: var(--verre);
+  font-family: var(--fonte-cadran);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--r-1) var(--r-3);
+  align-self: flex-start;
+}
+
+.fondation-lien:hover {
+  border-color: var(--verre);
+}
+
+.fondation-lien .fondation-lampe {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--verre-sombre);
+}
+
+.fondation-lien .lampe-allumee {
+  background: var(--verre);
+  border-color: var(--verre);
+}
+
+.geste-maitrise {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  color: var(--verre);
+}
+
+.geste-action {
+  align-self: flex-start;
+  margin-top: auto;
+  background: var(--laiton);
+  color: var(--nuit);
+  border: none;
+  border-radius: 999px;
+  padding: var(--r-3) var(--r-6);
+  font-weight: 600;
+  font-family: var(--fonte-corps);
+}
+
+.geste-action:hover {
+  background: var(--laiton-clair);
+}
+
+.geste-ecriteau {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: 1px dashed var(--texte-sourd);
+  border-radius: var(--r-1);
+  padding: var(--r-2) var(--r-3);
+  align-self: flex-start;
+  margin-top: auto;
+}

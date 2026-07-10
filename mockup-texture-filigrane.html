@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Mockup : textures en filigrane</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Lora:ital@0;1&family=JetBrains+Mono&display=swap');
+
+  :root {
+    --nuit: #12181f;
+    --nuit-2: #1a222c;
+    --nuit-3: #222d3a;
+    --laiton: #c99b4a;
+    --laiton-clair: #e6c37e;
+    --laiton-sombre: #8a672c;
+    --verre: #7fd6c2;
+    --verre-sombre: #2a4a44;
+    --texte-clair: #eae3d3;
+    --texte-sourd: #a7b0ba;
+    --fonte-titre: "Marcellus", "Georgia", serif;
+    --fonte-corps: "Lora", "Georgia", serif;
+    --fonte-cadran: "JetBrains Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #0a0d11;
+    color: var(--texte-clair);
+    font-family: var(--fonte-corps);
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .intro h1 { font-family: var(--fonte-titre); font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .intro p { color: var(--texte-sourd); line-height: 1.5; }
+
+  .mockup {
+    max-width: 1100px;
+    margin: 0 auto 4rem;
+    border: 1px solid #2a3038;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .mockup-label {
+    background: #0a0d11;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid #2a3038;
+  }
+  .mockup-label .nom {
+    font-family: var(--fonte-cadran);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    color: var(--verre);
+  }
+  .mockup-label .desc {
+    color: var(--texte-sourd);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+  /* Zone de démo = fond nuit + texture propre à chaque mockup */
+  .demo-zone {
+    position: relative;
+    padding: 3rem 2rem;
+    background-color: var(--nuit);
+  }
+
+  .demo-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .demo-header { text-align: center; margin-bottom: 2rem; }
+  .demo-surtitre {
+    font-family: var(--fonte-cadran);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--texte-sourd);
+    margin-bottom: 0.5rem;
+  }
+  .demo-header h2 { font-family: var(--fonte-titre); font-size: 2.2rem; margin: 0 0 0.6rem; }
+  .demo-header p { color: var(--texte-sourd); max-width: 42ch; margin: 0 auto; }
+
+  .demo-cartes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .demo-porte {
+    border: 2px solid var(--laiton-sombre);
+    border-radius: 90px 90px 10px 10px;
+    padding: 1.6rem 1rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(230, 195, 126, 0.18), transparent 70%),
+      linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  }
+  .demo-porte .titre { font-family: var(--fonte-titre); color: var(--laiton-clair); font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .demo-porte .tag { font-size: 0.82rem; color: var(--texte-sourd); }
+
+  .demo-fondation {
+    border: 1.5px solid var(--laiton-sombre);
+    border-radius: 16px;
+    padding: 1.4rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  }
+  .demo-fondation .titre { font-family: var(--fonte-titre); color: var(--laiton-clair); font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .demo-fondation .q { font-size: 0.85rem; color: var(--texte-sourd); }
+
+  /*
+   * Les trois variantes reprennent le même motif de rouages, seule
+   * la couleur du trait change : toujours dans la famille du fond
+   * (bleu-nuit), jamais le laiton contrasté du premier essai. Le SVG
+   * est paramétré par une couleur de trait passée en variable.
+   */
+  .demo-zone[class*="texture-a"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* A1 : trait #2c3644 (un cran au-dessus de --nuit-3), opacité modérée */
+  .texture-a1::before {
+    opacity: 0.7;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%232c3644' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='22'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Crect x='37' y='10' width='6' height='10'/%3E%3Crect x='37' y='60' width='6' height='10'/%3E%3Crect x='10' y='37' width='10' height='6'/%3E%3Crect x='60' y='37' width='10' height='6'/%3E%3Crect x='16' y='16' width='7' height='7' transform='rotate(45 19.5 19.5)'/%3E%3Crect x='57' y='57' width='7' height='7' transform='rotate(45 60.5 60.5)'/%3E%3Crect x='16' y='57' width='7' height='7' transform='rotate(45 19.5 60.5)'/%3E%3Crect x='57' y='16' width='7' height='7' transform='rotate(45 60.5 19.5)'/%3E%3Ccircle cx='130' cy='120' r='14'/%3E%3Ccircle cx='130' cy='120' r='4'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
+  /* A2 : trait #232b36 (à peine au-dessus de --nuit-2), plus fin, encore plus proche */
+  .texture-a2::before {
+    opacity: 0.85;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23232b36' stroke-width='0.75'%3E%3Ccircle cx='40' cy='40' r='22'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Crect x='37' y='10' width='6' height='10'/%3E%3Crect x='37' y='60' width='6' height='10'/%3E%3Crect x='10' y='37' width='10' height='6'/%3E%3Crect x='60' y='37' width='10' height='6'/%3E%3Crect x='16' y='16' width='7' height='7' transform='rotate(45 19.5 19.5)'/%3E%3Crect x='57' y='57' width='7' height='7' transform='rotate(45 60.5 60.5)'/%3E%3Crect x='16' y='57' width='7' height='7' transform='rotate(45 19.5 60.5)'/%3E%3Crect x='57' y='16' width='7' height='7' transform='rotate(45 60.5 19.5)'/%3E%3Ccircle cx='130' cy='120' r='14'/%3E%3Ccircle cx='130' cy='120' r='4'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
+  /* A3 : même trait doux que A2, motif deux fois plus grand et plus espacé */
+  .texture-a3::before {
+    opacity: 0.85;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23232b36' stroke-width='0.75'%3E%3Ccircle cx='40' cy='40' r='22'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Crect x='37' y='10' width='6' height='10'/%3E%3Crect x='37' y='60' width='6' height='10'/%3E%3Crect x='10' y='37' width='10' height='6'/%3E%3Crect x='60' y='37' width='10' height='6'/%3E%3Crect x='16' y='16' width='7' height='7' transform='rotate(45 19.5 19.5)'/%3E%3Crect x='57' y='57' width='7' height='7' transform='rotate(45 60.5 60.5)'/%3E%3Crect x='16' y='57' width='7' height='7' transform='rotate(45 19.5 60.5)'/%3E%3Crect x='57' y='16' width='7' height='7' transform='rotate(45 60.5 19.5)'/%3E%3Ccircle cx='130' cy='120' r='14'/%3E%3Ccircle cx='130' cy='120' r='4'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 320px 320px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    <h1>Rouages en filigrane : trois degrés de discrétion</h1>
+    <p>Le motif A retenu, mais recoloré : plus de doré qui capte l'œil, des tons proches du fond lui-même. L'effet doit se sentir, pas se voir. Ouvre ce fichier dans ton navigateur pour juger l'effet réel.</p>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-label">
+      <div class="nom">A1 · Filigrane doux</div>
+      <div class="desc">Trait à peine plus clair que le fond, même famille de bleu-nuit. Le motif se devine en s'approchant.</div>
+    </div>
+    <div class="demo-zone texture-a1">
+      <div class="demo-inner">
+        <div class="demo-header">
+          <p class="demo-surtitre">La manufacture des processus</p>
+          <h2>Coach Processus</h2>
+          <p>Apprendre à repérer les processus d'un groupe de travail, à les classer, puis à concevoir leur mesure.</p>
+        </div>
+        <div class="demo-cartes">
+          <div class="demo-porte"><div class="titre">Équipe agile</div><div class="tag">Les processus vécus au ras de l'équipe.</div></div>
+          <div class="demo-porte"><div class="titre">Programme</div><div class="tag">Les processus transverses.</div></div>
+          <div class="demo-fondation"><div class="titre">La carte à trois zooms</div><div class="q">Où vivent les processus, et qui les identifie.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-label">
+      <div class="nom">A2 · Filigrane très doux</div>
+      <div class="desc">Encore plus proche du fond, trait plus fin. Presque une texture de matière, plus un dessin.</div>
+    </div>
+    <div class="demo-zone texture-a2">
+      <div class="demo-inner">
+        <div class="demo-header">
+          <p class="demo-surtitre">La manufacture des processus</p>
+          <h2>Coach Processus</h2>
+          <p>Apprendre à repérer les processus d'un groupe de travail, à les classer, puis à concevoir leur mesure.</p>
+        </div>
+        <div class="demo-cartes">
+          <div class="demo-porte"><div class="titre">Équipe agile</div><div class="tag">Les processus vécus au ras de l'équipe.</div></div>
+          <div class="demo-porte"><div class="titre">Programme</div><div class="tag">Les processus transverses.</div></div>
+          <div class="demo-fondation"><div class="titre">La carte à trois zooms</div><div class="q">Où vivent les processus, et qui les identifie.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-label">
+      <div class="nom">A3 · Filigrane à grande échelle</div>
+      <div class="desc">Même trait doux que A2, mais motif deux fois plus grand et plus espacé : lu comme une texture d'ensemble, pas comme des icônes répétées.</div>
+    </div>
+    <div class="demo-zone texture-a3">
+      <div class="demo-inner">
+        <div class="demo-header">
+          <p class="demo-surtitre">La manufacture des processus</p>
+          <h2>Coach Processus</h2>
+          <p>Apprendre à repérer les processus d'un groupe de travail, à les classer, puis à concevoir leur mesure.</p>
+        </div>
+        <div class="demo-cartes">
+          <div class="demo-porte"><div class="titre">Équipe agile</div><div class="tag">Les processus vécus au ras de l'équipe.</div></div>
+          <div class="demo-porte"><div class="titre">Programme</div><div class="tag">Les processus transverses.</div></div>
+          <div class="demo-fondation"><div class="titre">La carte à trois zooms</div><div class="q">Où vivent les processus, et qui les identifie.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

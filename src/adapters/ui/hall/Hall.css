@@ -1,0 +1,189 @@
+.hall-header {
+  text-align: center;
+  margin-bottom: var(--r-8);
+}
+
+.hall-surtitre {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--texte-sourd);
+  margin-bottom: var(--r-2);
+}
+
+.hall-header h1 {
+  font-size: 2.6rem;
+  margin: 0 0 var(--r-3);
+}
+
+.hall-baseline {
+  color: var(--texte-sourd);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+.hall-invite {
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--texte-clair);
+}
+
+.hall-portes {
+  list-style: none;
+  padding: 0;
+  margin: var(--r-6) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--r-6);
+}
+
+.porte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-3);
+  width: 100%;
+  min-height: 240px;
+  padding: var(--r-6) var(--r-4);
+  border-radius: 120px 120px var(--rayon) var(--rayon);
+  border: 2px solid var(--laiton-sombre);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.porte-ouverte {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(230, 195, 126, 0.22), transparent 70%),
+    linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  border-color: var(--laiton);
+  color: var(--texte-clair);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.porte-ouverte:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 24px rgba(201, 155, 74, 0.18);
+}
+
+.porte-fermee {
+  background: linear-gradient(180deg, var(--nuit-2), var(--nuit));
+  color: var(--texte-sourd);
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+.porte-nom {
+  font-family: var(--fonte-titre);
+  font-size: 1.45rem;
+  color: var(--laiton-clair);
+}
+
+.porte-fermee .porte-nom {
+  color: var(--texte-sourd);
+}
+
+.porte-tagline {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  max-width: 28ch;
+}
+
+.porte-action {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--verre);
+  border: 1px solid var(--verre-sombre);
+  border-radius: 999px;
+  padding: var(--r-2) var(--r-4);
+}
+
+.hall-section-baseline {
+  text-align: center;
+  color: var(--texte-sourd);
+  max-width: 64ch;
+  margin: 0 auto var(--r-4);
+}
+
+.hall-bureau {
+  margin-bottom: var(--r-12);
+}
+
+.fondations-cartes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--r-4);
+}
+
+.fondation-carte {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--r-2);
+  text-align: center;
+  padding: var(--r-4);
+  border-radius: var(--rayon-grand);
+  border: 1.5px solid var(--laiton-sombre);
+  background: linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  color: var(--texte-clair);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fondation-carte:hover {
+  border-color: var(--laiton);
+  transform: translateY(-2px);
+}
+
+.fondation-lampe {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--verre-sombre);
+  background: transparent;
+}
+
+.lampe-allumee {
+  background: var(--verre);
+  border-color: var(--verre);
+  box-shadow: 0 0 10px rgba(127, 214, 194, 0.6);
+}
+
+.fondation-carte-titre {
+  font-family: var(--fonte-titre);
+  font-size: 1.1rem;
+  color: var(--laiton-clair);
+}
+
+.fondation-carte-question {
+  font-size: 0.88rem;
+  color: var(--texte-sourd);
+  line-height: 1.4;
+}
+
+.fondation-carte-etat {
+  font-family: var(--fonte-cadran);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--verre);
+  margin-top: auto;
+}
+
+.porte-ecriteau {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: 1px dashed var(--texte-sourd);
+  border-radius: var(--r-1);
+  padding: var(--r-2) var(--r-3);
+}

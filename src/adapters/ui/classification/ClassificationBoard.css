@@ -1,0 +1,174 @@
+.classer-nav {
+  margin-bottom: var(--r-4);
+}
+
+.classer-header {
+  text-align: center;
+  margin-bottom: var(--r-6);
+}
+
+.classer-surtitre {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--texte-sourd);
+  margin-bottom: var(--r-1);
+}
+
+.classer-header h1 {
+  font-size: 2rem;
+  margin: 0 0 var(--r-2);
+}
+
+.classer-phase {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  color: var(--verre);
+  margin: 0;
+}
+
+/* La carte à classer : plaque de laiton posée au centre */
+.carte-a-classer {
+  max-width: 30rem;
+  margin: 0 auto var(--r-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--r-2);
+  text-align: center;
+  padding: var(--r-6);
+  border-radius: var(--rayon-grand);
+  border: 2px solid var(--laiton);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(230, 195, 126, 0.16), transparent 70%),
+    linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+.carte-a-classer .carte-icone {
+  color: var(--laiton-clair);
+  display: inline-flex;
+  padding: var(--r-2);
+  border: 1.5px solid var(--laiton-sombre);
+  border-radius: 50%;
+}
+
+.carte-a-classer h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.classer-question {
+  margin: 0;
+  color: var(--texte-sourd);
+  font-style: italic;
+}
+
+.cibles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--r-4);
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.cible {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--r-2);
+  text-align: center;
+  padding: var(--r-4);
+  border-radius: var(--rayon);
+  border: 2px solid var(--laiton-sombre);
+  background: linear-gradient(180deg, var(--nuit-2), var(--nuit));
+  color: var(--texte-clair);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.cible:hover:not(:disabled) {
+  border-color: var(--laiton);
+  transform: translateY(-2px);
+}
+
+.cible:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.cible-raccourci {
+  position: absolute;
+  top: var(--r-2);
+  left: var(--r-2);
+  font-family: var(--fonte-cadran);
+  font-size: 0.75rem;
+  color: var(--texte-sourd);
+  border: 1px solid var(--texte-sourd);
+  border-radius: 4px;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cible-icone {
+  color: var(--verre);
+  display: inline-flex;
+  padding: var(--r-2);
+  border: 1.5px solid var(--verre-sombre);
+  border-radius: 50%;
+}
+
+.cible-label {
+  font-family: var(--fonte-titre);
+  font-size: 1.15rem;
+  color: var(--laiton-clair);
+}
+
+.cible-hint {
+  font-size: 0.88rem;
+  color: var(--texte-sourd);
+  line-height: 1.4;
+}
+
+.classer-feedback {
+  margin-top: var(--r-6);
+}
+
+.feedback-carte {
+  max-width: 60ch;
+  margin: 0 auto;
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6);
+  text-align: center;
+}
+
+.feedback-juste {
+  border: 2px solid var(--ok);
+  background: rgba(111, 199, 138, 0.08);
+}
+
+.feedback-confusion {
+  border: 2px dashed var(--alerte);
+  background: rgba(224, 170, 78, 0.07);
+}
+
+.feedback-verdict {
+  font-family: var(--fonte-titre);
+  font-size: 1.2rem;
+  color: var(--laiton-clair);
+  margin: 0 0 var(--r-2);
+}
+
+.feedback-carte p {
+  margin: 0 0 var(--r-3);
+}
+
+.feedback-maitrise {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  color: var(--verre);
+}

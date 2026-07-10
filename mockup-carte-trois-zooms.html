@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mockup : la carte à trois zooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" />
+<style>
+:root {
+  --nuit: #12181f; --nuit-2: #1a222c; --nuit-3: #222d3a;
+  --laiton: #c99b4a; --laiton-clair: #e6c37e; --laiton-sombre: #8a672c;
+  --verre: #7fd6c2; --verre-sombre: #2a4a44;
+  --papier: #f2e8d5; --encre: #2b2721;
+  --texte-clair: #eae3d3; --texte-sourd: #a7b0ba;
+  --macro: #b9a7f0; --macro-fond: rgba(127, 106, 220, 0.16);
+  --medium: #7fd6c2; --medium-fond: rgba(29, 158, 117, 0.14);
+  --micro: #f0997b; --micro-fond: rgba(216, 90, 48, 0.14);
+  --titre: "Marcellus", serif; --corps: "Lora", serif; --cadran: "JetBrains Mono", monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 1.5rem 1.5rem 3rem;
+  font-family: var(--corps); color: var(--texte-clair); line-height: 1.5;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(201,155,74,0.08), transparent 60%),
+    radial-gradient(900px 500px at 85% 110%, rgba(127,214,194,0.06), transparent 60%),
+    linear-gradient(180deg, var(--nuit) 0%, var(--nuit-2) 100%);
+  min-height: 100vh;
+}
+main { max-width: 1600px; margin: 0 auto; }
+header { text-align: center; margin-bottom: 1.5rem; }
+.surtitre {
+  font-family: var(--cadran); font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.25em; color: var(--texte-sourd); margin: 0 0 0.4rem;
+}
+h1 { font-family: var(--titre); font-weight: 400; color: var(--laiton-clair); font-size: 1.9rem; margin: 0 0 0.4rem; }
+.baseline { color: var(--texte-sourd); max-width: 70ch; margin: 0 auto; }
+
+.niveau {
+  border: 1.5px solid var(--laiton-sombre); border-radius: 14px;
+  padding: 0.9rem 1.1rem; background: linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  transition: opacity 0.35s ease; margin-top: 0.4rem;
+}
+.niveau.estompe { opacity: 0.32; cursor: pointer; }
+.niveau.estompe:hover { opacity: 0.55; }
+.niveau.cache { display: none; }
+.apparait { animation: descend 0.35s ease; }
+@keyframes descend { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .apparait { animation: none; } .niveau { transition: none; } }
+
+.niveau-entete { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.niveau-nom { font-family: var(--titre); font-size: 1rem; }
+.niveau-macro .niveau-nom { color: var(--macro); }
+.niveau-medium .niveau-nom { color: var(--medium); }
+.niveau-micro .niveau-nom { color: var(--micro); }
+.niveau-qui { font-family: var(--cadran); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--texte-sourd); }
+
+.rangee { display: flex; gap: 0.3rem; align-items: stretch; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.2rem; }
+.fleche { color: var(--texte-sourd); font-size: 0.85rem; align-self: center; flex: none; }
+.etape {
+  font-family: var(--corps); font-size: 0.86rem; padding: 0.4rem 0.55rem;
+  border-radius: 8px; border: 1px solid var(--laiton-sombre);
+  color: var(--texte-clair); background: none; cursor: pointer;
+  display: inline-flex; flex-direction: column; align-items: center; gap: 0.25rem;
+  text-align: center; flex: 1 1 0; min-width: 0; justify-content: center;
+  transition: border-color 0.15s, box-shadow 0.15s, opacity 0.3s;
+}
+.etape:hover { border-color: var(--laiton); }
+.etape:focus-visible { outline: 3px solid var(--verre); outline-offset: 2px; }
+.niveau-macro .etape { background: var(--macro-fond); }
+.niveau-medium .etape { background: var(--medium-fond); }
+.niveau-micro .etape { background: var(--micro-fond); cursor: default; }
+.etape.choisie { border: 2px solid var(--verre); box-shadow: 0 0 14px rgba(127,214,194,0.25); }
+.etape.eteinte { opacity: 0.35; }
+.badge {
+  font-family: var(--cadran); font-size: 0.58rem; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 0.08rem 0.35rem; border-radius: 999px; flex: none;
+}
+.badge-zoom { color: var(--verre); border: 1px solid var(--verre-sombre); }
+.badge-info { color: var(--texte-sourd); border: 1px dashed var(--texte-sourd); }
+.badge-retour {
+  background: var(--verre); color: var(--nuit); border: none;
+  font-size: 0.85rem; font-weight: 600; padding: 0.2rem 0.7rem;
+  box-shadow: 0 0 10px rgba(127, 214, 194, 0.45);
+}
+.etape:hover .badge-retour { background: #a5e6d8; }
+
+.lien-zoom {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.3rem 0 0.1rem 2rem;
+  font-family: var(--cadran); font-size: 0.72rem; color: var(--verre);
+}
+.lien-zoom::before { content: "⤷"; font-size: 1.05rem; color: var(--laiton); }
+.lien-zoom.cache { display: none; }
+.decale-1 { margin-left: 1.2rem; }
+.decale-2 { margin-left: 2.4rem; }
+
+
+.panneau {
+  margin-top: 1rem; border: 1.5px solid var(--laiton); border-radius: 14px;
+  padding: 0.9rem 1.3rem; background: var(--papier); color: var(--encre);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.panneau h2 { font-family: var(--titre); font-weight: 400; font-size: 1.05rem; margin: 0 0 0.3rem; color: var(--encre); }
+.panneau p { margin: 0; font-size: 0.92rem; }
+footer { text-align: center; margin-top: 1.5rem; font-family: var(--cadran); font-size: 0.7rem; color: var(--texte-sourd); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="surtitre">Fiche théorie · mockup v3 à valider</p>
+    <h1>La carte à trois zooms</h1>
+    <p class="baseline">Une même réalité, trois niveaux de zoom. Une case avec loupe ouvre la vue suivante ; une case avec info s'explique. Commencez par la vue macro : le processus d'affaires, celui que le client traverse de bout en bout (certains cadres l'appellent flux de valeur opérationnel).</p>
+  </header>
+
+  <section class="niveau niveau-macro" id="macro" aria-label="Vue macro">
+    <div class="niveau-entete">
+      <span class="niveau-nom">Vue macro · le parcours du client (le processus d'affaires de bout en bout)</span>
+      <span class="niveau-qui">Identifié par la direction · observé chez le client</span>
+    </div>
+    <div class="rangee" id="macro-rangee"></div>
+  </section>
+
+  <div class="lien-zoom decale-1 cache" id="zoom-label-1"></div>
+
+  <section class="niveau niveau-medium decale-1 cache" id="medium" aria-label="Vue médium">
+    <div class="niveau-entete">
+      <span class="niveau-nom" id="medium-titre"></span>
+      <span class="niveau-qui">Identifié par la gestion de produit · avec les équipes traversées</span>
+    </div>
+    <div class="rangee" id="medium-rangee"></div>
+  </section>
+
+  <div class="lien-zoom decale-2 cache" id="zoom-label-2"></div>
+
+  <section class="niveau niveau-micro decale-2 cache" id="micro" aria-label="Vue micro">
+    <div class="niveau-entete">
+      <span class="niveau-nom" id="micro-titre"></span>
+      <span class="niveau-qui">Identifié par l'équipe elle-même</span>
+    </div>
+    <div class="rangee" id="micro-rangee"></div>
+  </section>
+
+  <div class="panneau" role="status" aria-live="polite">
+    <h2 id="panneau-titre">Cliquez sur une case de la vue macro</h2>
+    <p id="panneau-texte">Les cases « info » s'expliquent ici. Les cases « zoom » ouvrent la vue suivante ; la vue quittée s'estompe mais reste lisible pour garder le fil.</p>
+  </div>
+
+  <footer>Coach Processus · mockup carte à trois zooms v3 · étapes complétées par Claude, à valider par Lætitia</footer>
+</main>
+
+<script>
+const MACRO = [
+  { nom: "Découvrir", info: ["Découvrir : la veille du client", "Le cabinet vétérinaire fait sa veille marché et technologique : salons, confrères, comparatifs, presse spécialisée. C'est un processus du client ; on ne le pilote pas, on l'observe pour comprendre comment être trouvé."] },
+  { nom: "Choisir", info: ["Choisir : l'évaluation des options", "Le client compare les solutions, demande des démonstrations, essaie, consulte des références. Étape complétée d'après le parcours de consommation de Womack : à valider."] },
+  { nom: "Commander", zoom: "evolution", info: ["Commander : case zoomable", "Côté client : évaluer le besoin, évaluer la valeur, contractualiser. Et c'est depuis la commande que les demandes d'évolution entrent dans notre processus transversal de gestion de la demande (les cadres à l'échelle l'appellent flux de valeur de développement) : le zoom l'ouvre en vue médium."] },
+  { nom: "Démarrer", info: ["Démarrer : la mise en service", "Installer, migrer les données, se former, configurer. Souvent la première vraie épreuve du client, et un angle mort classique des équipes de développement. Étape complétée : à valider."] },
+  { nom: "Utiliser", info: ["Utiliser : là où naît la valeur", "L'usage au quotidien est l'étape où la valeur se réalise, et où naissent les demandes d'évolution et les problèmes. C'est ici que se mesure le vrai résultat (le KGI)."] },
+  { nom: "Obtenir de l'aide", zoom: "correctif", info: ["Obtenir de l'aide : case zoomable", "Le client signale un problème et attend d'être remis en marche. Le zoom ouvre le processus transversal correctif en vue médium."] },
+  { nom: "Renouveler ou quitter", info: ["Renouveler ou quitter : le verdict", "Au terme du contrat, le client renouvelle, étend, ou part. C'est la mesure ultime de tout le parcours. Étape complétée : à valider."] }
+];
+const MEDIUMS = {
+  evolution: {
+    titre: "Vue médium · le processus transversal (ici : la gestion de la demande)",
+    label: "zoom sur « Commander »",
+    micro: "fonctionnalite",
+    etapes: [
+      { nom: "Recevoir la demande d'évolution" },
+      { nom: "Qualifier le besoin", info: ["Qualifier le besoin", "Comprendre le problème derrière la demande, avec le demandeur : le chemin conjoint avec la gestion de produit commence ici. Étape complétée : à valider."] },
+      { nom: "Estimer la valeur" },
+      { nom: "Prioriser" },
+      { nom: "Analyser, traduire en solution TI" },
+      { nom: "Découper en fonctionnalités" },
+      { nom: "Confier aux équipes TI", zoom: true },
+      { nom: "Vérifier la valeur en service", info: ["Vérifier la valeur en service", "Une fois livré : la demande a-t-elle produit la valeur estimée ? La boucle que presque toutes les organisations oublient. Étape complétée : à valider."] }
+    ]
+  },
+  correctif: {
+    titre: "Vue médium · le processus transversal (ici : le flux correctif)",
+    label: "zoom sur « Obtenir de l'aide »",
+    micro: "correctif",
+    etapes: [
+      { nom: "Signaler au support" },
+      { nom: "Qualifier et reproduire", info: ["Qualifier et reproduire", "Comprendre le problème et le reproduire pour le localiser. Étape complétée : à valider."] },
+      { nom: "Prioriser selon la sévérité" },
+      { nom: "Corriger", zoom: true },
+      { nom: "Livrer le correctif" },
+      { nom: "Confirmer la résolution avec le client", info: ["Confirmer la résolution", "Le flux ne se termine pas à la livraison : il se termine quand le client confirme qu'il est remis en marche. Étape complétée : à valider."] }
+    ]
+  }
+};
+const MICROS = {
+  fonctionnalite: {
+    titre: "Vue micro · le processus d'équipe (réaliser une fonctionnalité)",
+    etapes: ["Prendre en charge", "Affiner avec le PO", "Concevoir", "Réaliser", "Relire entre pairs", "Tester", "Intégrer et livrer", "Surveiller en production"]
+  },
+  correctif: {
+    titre: "Vue micro · le processus d'équipe (traiter un correctif)",
+    etapes: ["Prendre le ticket", "Reproduire le défaut", "Corriger", "Tester la non-régression", "Relire entre pairs", "Livrer", "Surveiller en production"]
+  }
+};
+
+const $ = (id) => document.getElementById(id);
+let etat = { medium: null };
+
+function setPanneau(titre, texte) { $("panneau-titre").textContent = titre; $("panneau-texte").textContent = texte; }
+function setBadgeZoom(bouton, ouvert) {
+  const badge = bouton?.querySelector(".badge-zoom");
+  if (badge) {
+    badge.textContent = ouvert ? "↑ fermer" : "zoom";
+    badge.classList.toggle("badge-retour", ouvert);
+    bouton.title = ouvert ? "Refermer cette vue" : "Ouvrir la vue suivante";
+  }
+}
+function resetBadges(rangee) {
+  rangee.querySelectorAll(".etape").forEach((b) => setBadgeZoom(b, false));
+}
+function fleche() { const f = document.createElement("span"); f.className = "fleche"; f.textContent = "→"; return f; }
+function badge(type) { const b = document.createElement("span"); b.className = "badge badge-" + type; b.textContent = type; return b; }
+
+function renderMacro() {
+  const r = $("macro-rangee"); r.innerHTML = "";
+  MACRO.forEach((c, i) => {
+    const b = document.createElement("button");
+    b.className = "etape"; b.append(c.nom, badge(c.zoom ? "zoom" : "info"));
+    b.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      if (c.zoom && etat.medium === c.zoom && b.classList.contains("choisie")) {
+        fermerMedium();
+        return;
+      }
+      r.querySelectorAll(".etape").forEach((o) => o.classList.remove("choisie"));
+      b.classList.add("choisie");
+      setPanneau(c.info[0], c.info[1]);
+      if (c.zoom) ouvrirMedium(c.zoom, b, r);
+    });
+    r.appendChild(b);
+    if (i < MACRO.length - 1) r.appendChild(fleche());
+  });
+}
+
+function ouvrirMedium(cle, caseChoisie, rangeeMacro) {
+  etat.medium = cle;
+  const m = MEDIUMS[cle];
+  $("macro").classList.add("estompe");
+  rangeeMacro.querySelectorAll(".etape").forEach((o) => o.classList.toggle("eteinte", o !== caseChoisie));
+  resetBadges(rangeeMacro);
+  setBadgeZoom(caseChoisie, true);
+  fermerMicro();
+  $("zoom-label-1").textContent = m.label; $("zoom-label-1").classList.remove("cache");
+  const sec = $("medium"); sec.classList.remove("cache", "estompe"); sec.classList.add("apparait");
+  $("medium-titre").textContent = m.titre;
+  const r = $("medium-rangee"); r.innerHTML = "";
+  m.etapes.forEach((e, i) => {
+    const b = document.createElement("button");
+    b.className = "etape"; b.append(e.nom);
+    if (e.zoom) b.append(badge("zoom"));
+    else if (e.info) b.append(badge("info"));
+    b.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      if (e.zoom && !$("micro").classList.contains("cache") && b.classList.contains("choisie")) {
+        fermerMicro();
+        return;
+      }
+      r.querySelectorAll(".etape").forEach((o) => o.classList.remove("choisie"));
+      b.classList.add("choisie");
+      if (e.zoom) {
+        setPanneau(e.nom, "Le zoom ouvre le processus de l'équipe en vue micro.");
+        ouvrirMicro(m.micro, e.nom, b, r);
+      } else if (e.info) {
+        setPanneau(e.info[0], e.info[1]);
+      } else {
+        setPanneau(e.nom, "Étape du flux de valeur. Cliquez sur les cases avec badge pour une explication ou un zoom.");
+      }
+    });
+    r.appendChild(b);
+    if (i < m.etapes.length - 1) r.appendChild(fleche());
+  });
+}
+
+function ouvrirMicro(cle, nomCase, caseChoisie, rangeeMedium) {
+  const mi = MICROS[cle];
+  $("medium").classList.add("estompe");
+  rangeeMedium.querySelectorAll(".etape").forEach((o) => o.classList.toggle("eteinte", o !== caseChoisie));
+  resetBadges(rangeeMedium);
+  setBadgeZoom(caseChoisie, true);
+  $("zoom-label-2").textContent = "zoom sur « " + nomCase + " »"; $("zoom-label-2").classList.remove("cache");
+  const sec = $("micro"); sec.classList.remove("cache"); sec.classList.add("apparait");
+  $("micro-titre").textContent = mi.titre;
+  const r = $("micro-rangee"); r.innerHTML = "";
+  mi.etapes.forEach((e, i) => {
+    const s = document.createElement("span");
+    s.className = "etape"; s.textContent = e;
+    r.appendChild(s);
+    if (i < mi.etapes.length - 1) r.appendChild(fleche());
+  });
+}
+
+function fermerMicro() {
+  $("micro").classList.add("cache"); $("zoom-label-2").classList.add("cache");
+  $("medium").classList.remove("estompe");
+  $("medium-rangee").querySelectorAll(".etape").forEach((o) => o.classList.remove("eteinte", "choisie"));
+  resetBadges($("medium-rangee"));
+}
+
+function fermerMedium() {
+  etat.medium = null;
+  fermerMicro();
+  $("medium").classList.add("cache"); $("zoom-label-1").classList.add("cache");
+  $("macro").classList.remove("estompe");
+  $("macro-rangee").querySelectorAll(".etape").forEach((o) => o.classList.remove("eteinte"));
+  resetBadges($("macro-rangee"));
+  setPanneau("Retour à la vue macro", "Cliquez sur une case pour explorer à nouveau.");
+}
+
+function remonter() {
+  if (!$("micro").classList.contains("cache")) fermerMicro();
+  else if (!$("medium").classList.contains("cache")) fermerMedium();
+}
+
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") remonter(); });
+
+// Cliquer sur un niveau estompé ramène à ce niveau.
+$("macro").addEventListener("click", () => {
+  if ($("macro").classList.contains("estompe")) fermerMedium();
+});
+$("medium").addEventListener("click", () => {
+  if ($("medium").classList.contains("estompe")) fermerMicro();
+});
+
+renderMacro();
+</script>
+</body>
+</html>

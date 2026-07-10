@@ -1,0 +1,77 @@
+@import "./tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-corps);
+  color: var(--texte-clair);
+  position: relative;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(201, 155, 74, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 85% 110%, rgba(127, 214, 194, 0.06), transparent 60%),
+    linear-gradient(180deg, var(--nuit) 0%, var(--nuit-2) 100%);
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+/*
+ * Filigrane de rouages (validé sur mockup-texture-filigrane.html, variante
+ * A2) : trait dans la même famille de bleu-nuit que le fond, presque
+ * imperceptible, pour donner une texture de matière plutôt qu'un dessin.
+ */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.85;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23232b36' stroke-width='0.75'%3E%3Ccircle cx='40' cy='40' r='22'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Crect x='37' y='10' width='6' height='10'/%3E%3Crect x='37' y='60' width='6' height='10'/%3E%3Crect x='10' y='37' width='10' height='6'/%3E%3Crect x='60' y='37' width='10' height='6'/%3E%3Crect x='16' y='16' width='7' height='7' transform='rotate(45 19.5 19.5)'/%3E%3Crect x='57' y='57' width='7' height='7' transform='rotate(45 60.5 60.5)'/%3E%3Crect x='16' y='57' width='7' height='7' transform='rotate(45 19.5 60.5)'/%3E%3Crect x='57' y='16' width='7' height='7' transform='rotate(45 60.5 19.5)'/%3E%3Ccircle cx='130' cy='120' r='14'/%3E%3Ccircle cx='130' cy='120' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--r-6) var(--r-4) var(--r-12);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titre);
+  font-weight: 400;
+  color: var(--laiton-clair);
+  letter-spacing: 0.02em;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--verre);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,32 @@
+.renvoi-echecs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--r-3);
+  margin: var(--r-4) 0 0;
+  padding: var(--r-3) var(--r-4);
+  border: 1px dashed var(--alerte);
+  border-radius: var(--rayon);
+  background: rgba(224, 170, 78, 0.08);
+}
+
+.renvoi-echecs-texte {
+  color: var(--texte-clair);
+  font-size: 0.92rem;
+}
+
+.renvoi-echecs-lien {
+  background: none;
+  border: 1px solid var(--alerte);
+  border-radius: 999px;
+  color: var(--alerte);
+  font-family: var(--fonte-cadran);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--r-1) var(--r-3);
+}
+
+.renvoi-echecs-lien:hover {
+  background: rgba(224, 170, 78, 0.15);
+}

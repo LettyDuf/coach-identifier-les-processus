@@ -1,0 +1,43 @@
+{
+  "name": "coach-processus",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Outil pédagogique pour apprendre à repérer, classer et mesurer les processus d'un groupe de travail.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && rimraf dist && vite build --outDir dist && cp dist/index.html coach-processus.html",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:domain": "vitest run --project domain",
+    "test:corpus": "vitest run --project corpus",
+    "test:ui": "vitest run --project ui",
+    "lint": "eslint src tests"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^6.0.3",
+    "eslint": "^10.6.0",
+    "jsdom": "^29.1.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.63.0",
+    "vite": "^8.1.0",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^4.1.9",
+    "vitest-axe": "^0.1.0"
+  },
+  "license": "CC-BY-SA-4.0",
+  "author": "Lætitia Dufour"
+}

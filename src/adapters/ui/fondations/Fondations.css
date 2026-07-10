@@ -1,0 +1,132 @@
+.fondation-nav {
+  margin-bottom: var(--r-4);
+}
+
+.fondation-header {
+  text-align: center;
+  margin-bottom: var(--r-6);
+}
+
+.fondation-surtitre {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--texte-sourd);
+  margin-bottom: var(--r-1);
+}
+
+.fondation-header h1 {
+  font-size: 2rem;
+  margin: 0 0 var(--r-2);
+}
+
+.fondation-baseline {
+  color: var(--texte-sourd);
+  margin: 0;
+}
+
+.fondation-corps {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.fondation-grille {
+  max-width: 62rem;
+}
+
+.fondation-ancrage {
+  max-width: 60ch;
+  margin: 0 auto var(--r-4);
+  text-align: center;
+  font-family: var(--fonte-titre);
+  font-size: 1.02rem;
+  color: var(--laiton-clair);
+}
+
+.fondation-probleme {
+  text-align: center;
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--verre);
+  margin: 0 0 var(--r-3);
+}
+
+.fondation-sous-titre {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 0 0 var(--r-3);
+}
+
+.fondation-tests {
+  background: var(--papier);
+  color: var(--encre);
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6) var(--r-4) var(--r-8);
+  margin: 0 0 var(--r-3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-2);
+}
+
+.fondation-moral {
+  color: var(--texte-sourd);
+  max-width: 60ch;
+  margin: 0 auto var(--r-4);
+  text-align: center;
+}
+
+.fondation-actions {
+  text-align: center;
+  margin-top: var(--r-6);
+}
+
+.fondation-vers-atelier {
+  color: var(--texte-clair);
+  max-width: 55ch;
+  margin: 0 auto var(--r-3);
+  font-style: italic;
+}
+
+.fondation-actions .action-principale {
+  background: var(--laiton);
+  color: var(--nuit);
+  border: none;
+  border-radius: 999px;
+  padding: var(--r-3) var(--r-8);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--fonte-corps);
+}
+
+.fondation-actions .action-principale:hover {
+  background: var(--laiton-clair);
+}
+
+/* Rappel compact dans les gestes */
+.fondation-rappel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-3);
+}
+
+.rappel-ancrage {
+  font-family: var(--fonte-titre);
+  color: var(--laiton-clair);
+  margin: 0;
+  text-align: center;
+}
+
+.rappel-definitions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-2);
+  font-size: 0.92rem;
+}

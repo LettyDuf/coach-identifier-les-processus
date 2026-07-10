@@ -1,0 +1,131 @@
+.theorie {
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-4);
+}
+
+.theorie-cle {
+  font-family: var(--fonte-titre);
+  font-size: 1.05rem;
+  color: var(--laiton-clair);
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.theorie-axes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--r-4);
+}
+
+.theorie-axes h3 {
+  font-size: 1.05rem;
+  margin: 0 0 var(--r-2);
+}
+
+.theorie-axes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-2);
+}
+
+.theorie-axes li {
+  display: flex;
+  gap: var(--r-2);
+  align-items: flex-start;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.theorie-icone {
+  flex: none;
+  color: var(--verre);
+  display: inline-flex;
+  padding: 2px;
+}
+
+.theorie-grille {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88rem;
+}
+
+.theorie-grille caption {
+  font-family: var(--fonte-cadran);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--texte-sourd);
+  padding-bottom: var(--r-2);
+}
+
+.theorie-grille th,
+.theorie-grille td {
+  border: 1px solid var(--laiton-sombre);
+  padding: var(--r-2) var(--r-3);
+  text-align: left;
+  vertical-align: top;
+}
+
+.theorie-grille thead th {
+  font-family: var(--fonte-titre);
+  color: var(--laiton-clair);
+  font-weight: 400;
+  background: rgba(201, 155, 74, 0.08);
+}
+
+.theorie-grille tbody th {
+  font-family: var(--fonte-titre);
+  color: var(--laiton-clair);
+  font-weight: 400;
+  white-space: nowrap;
+  background: rgba(201, 155, 74, 0.08);
+}
+
+.theorie-grille td {
+  color: var(--texte-clair);
+  line-height: 1.4;
+}
+
+.theorie-pont {
+  font-size: 0.88rem;
+  color: var(--texte-sourd);
+  font-style: italic;
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* Le panneau escamotable qui héberge la grille */
+.theorie-panneau {
+  max-width: 62rem;
+  margin: 0 auto var(--r-6);
+  border: 1px solid var(--laiton-sombre);
+  border-radius: var(--rayon-grand);
+  background: linear-gradient(180deg, var(--nuit-2), var(--nuit));
+}
+
+.theorie-panneau summary {
+  cursor: pointer;
+  padding: var(--r-3) var(--r-4);
+  font-family: var(--fonte-titre);
+  color: var(--laiton-clair);
+  font-size: 1.05rem;
+  list-style-position: inside;
+}
+
+.theorie-panneau summary:hover {
+  color: var(--laiton);
+}
+
+.theorie-panneau[open] summary {
+  border-bottom: 1px solid var(--laiton-sombre);
+}
+
+.theorie-panneau .theorie {
+  padding: var(--r-4);
+}

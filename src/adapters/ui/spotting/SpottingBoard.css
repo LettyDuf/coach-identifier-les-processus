@@ -1,0 +1,313 @@
+.spotting-nav {
+  margin-bottom: var(--r-4);
+}
+
+.spotting-header {
+  text-align: center;
+  margin-bottom: var(--r-6);
+}
+
+.spotting-surtitre {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--texte-sourd);
+  margin-bottom: var(--r-1);
+}
+
+.spotting-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Le récit en vignettes : zone claire posée sur la nuit */
+.recit {
+  background: var(--papier);
+  color: var(--encre);
+  border: 1px solid var(--papier-bord);
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6);
+  margin: 0 auto var(--r-8);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 4px rgba(201, 155, 74, 0.15);
+}
+
+.vignettes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--r-3) var(--r-4);
+}
+
+.vignette {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--r-3);
+  padding: var(--r-3);
+  border-radius: var(--rayon);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.vignette-icone {
+  flex: none;
+  color: var(--cuivre);
+  display: inline-flex;
+  padding: var(--r-1);
+  border: 1.5px solid rgba(176, 114, 72, 0.4);
+  border-radius: 50%;
+}
+
+.vignette p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.consigne {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: var(--r-2);
+}
+
+.consigne-aide {
+  text-align: center;
+  color: var(--texte-sourd);
+  max-width: 60ch;
+  margin: 0 auto var(--r-6);
+}
+
+.plaques {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--r-4);
+}
+
+.plaque {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--r-3);
+  text-align: center;
+  padding: var(--r-4);
+  border-radius: var(--rayon);
+  border: 2px solid var(--laiton-sombre);
+  background: linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  color: var(--texte-clair);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.plaque:hover:not(:disabled) {
+  border-color: var(--laiton);
+}
+
+.plaque:disabled {
+  cursor: default;
+}
+
+.plaque-marquee {
+  border-color: var(--verre);
+  box-shadow: 0 0 18px rgba(127, 214, 194, 0.18);
+}
+
+.plaque-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--r-2);
+}
+
+.plaque-icone {
+  color: var(--laiton-clair);
+  display: inline-flex;
+  padding: var(--r-2);
+  border: 1.5px solid var(--laiton-sombre);
+  border-radius: 50%;
+}
+
+.plaque-marquee .plaque-icone {
+  color: var(--verre);
+  border-color: var(--verre-sombre);
+}
+
+.plaque-label {
+  font-size: 1.02rem;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* Carte d'identité révélée après vérification */
+.carte-reveal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-2);
+  border-top: 1px solid var(--laiton-sombre);
+  padding-top: var(--r-3);
+  width: 100%;
+}
+
+.verdict-mot {
+  font-family: var(--fonte-cadran);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 999px;
+  padding: var(--r-1) var(--r-3);
+  align-self: center;
+}
+
+.verdict-ok {
+  color: var(--ok);
+  border: 1px solid var(--ok);
+}
+
+.verdict-alerte {
+  color: var(--alerte);
+  border: 1px dashed var(--alerte);
+}
+
+.carte-identite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-2);
+  text-align: left;
+}
+
+.identite-entete {
+  display: flex;
+  align-items: center;
+  gap: var(--r-2);
+  align-self: center;
+}
+
+.identite-titre {
+  font-family: var(--fonte-titre);
+  font-size: 0.95rem;
+  color: var(--laiton-clair);
+  letter-spacing: 0.06em;
+}
+
+.identite-ligne {
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  gap: var(--r-2);
+  align-items: baseline;
+}
+
+.identite-cle {
+  font-family: var(--fonte-cadran);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--verre);
+}
+
+.identite-valeur {
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.carte-identite-leurre {
+  align-items: center;
+  text-align: center;
+}
+
+.tampon-nature {
+  font-family: var(--fonte-titre);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: var(--r-1) var(--r-4);
+  border-radius: 3px;
+  transform: rotate(-2deg);
+}
+
+.tampon-ok {
+  color: var(--texte-sourd);
+  border: 2px solid var(--texte-sourd);
+}
+
+.tampon-alerte {
+  color: var(--alerte);
+  border: 2px solid var(--alerte);
+}
+
+.verdict-pourquoi {
+  font-size: 0.88rem;
+  color: var(--texte-sourd);
+  font-style: italic;
+}
+
+.plaque-trouve,
+.plaque-bien-ecarte {
+  border-color: var(--ok-sombre);
+}
+
+.plaque-manque,
+.plaque-faux-positif {
+  border-color: var(--alerte-sombre);
+}
+
+.spotting-actions {
+  display: flex;
+  justify-content: center;
+  margin: var(--r-8) 0 var(--r-4);
+}
+
+.action-principale {
+  background: var(--laiton);
+  color: var(--nuit);
+  border: none;
+  border-radius: 999px;
+  padding: var(--r-3) var(--r-8);
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: var(--fonte-corps);
+}
+
+.action-principale:hover {
+  background: var(--laiton-clair);
+}
+
+.feedback-global {
+  max-width: 60ch;
+  margin: 0 auto;
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6);
+  text-align: center;
+}
+
+.feedback-success {
+  border: 2px solid var(--ok);
+  background: rgba(111, 199, 138, 0.08);
+}
+
+.feedback-miss {
+  border: 2px dashed var(--alerte);
+  background: rgba(224, 170, 78, 0.07);
+}
+
+.feedback-titre {
+  font-family: var(--fonte-titre);
+  font-size: 1.2rem;
+  color: var(--laiton-clair);
+  margin: 0 0 var(--r-2);
+}
+
+.feedback-global p {
+  margin: 0 0 var(--r-2);
+}
+
+.feedback-maitrise {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  color: var(--verre);
+}

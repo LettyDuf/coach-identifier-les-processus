@@ -1,0 +1,435 @@
+.mesurer-nav {
+  margin-bottom: var(--r-4);
+}
+
+.mesurer-header {
+  text-align: center;
+  margin-bottom: var(--r-6);
+}
+
+.mesurer-surtitre {
+  font-family: var(--fonte-cadran);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--texte-sourd);
+  margin-bottom: var(--r-1);
+}
+
+.mesurer-header h1 {
+  font-size: 2rem;
+  margin: 0 0 var(--r-3);
+}
+
+.mesurer-paliers {
+  display: flex;
+  justify-content: center;
+  gap: var(--r-2);
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.palier-jalon {
+  font-family: var(--fonte-cadran);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--r-1) var(--r-3);
+  border-radius: 999px;
+  border: 1px solid var(--laiton-sombre);
+  color: var(--texte-sourd);
+}
+
+.palier-actif {
+  border-color: var(--laiton);
+  color: var(--laiton-clair);
+}
+
+.palier-passe {
+  border-color: var(--verre-sombre);
+  color: var(--verre);
+}
+
+.palier {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.palier-titre {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 0 0 var(--r-1);
+}
+
+.palier-aide {
+  text-align: center;
+  color: var(--texte-sourd);
+  margin: 0 0 var(--r-4);
+}
+
+.quiz-question {
+  font-size: 1.08rem;
+  background: var(--papier);
+  color: var(--encre);
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin: var(--r-4) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-2);
+}
+
+.quiz-option {
+  width: 100%;
+  text-align: left;
+  font-family: var(--fonte-corps);
+  font-size: 0.98rem;
+  padding: var(--r-3) var(--r-4);
+  border-radius: var(--rayon);
+  border: 1px solid var(--laiton-sombre);
+  background: linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  color: var(--texte-clair);
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--laiton);
+}
+
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.quiz-choisie {
+  border: 2px solid var(--verre);
+  opacity: 1 !important;
+}
+
+/* Palier 1 : pourquoi trois familles */
+.sens-contexte {
+  background: var(--papier);
+  color: var(--encre);
+  border-radius: var(--rayon-grand);
+  padding: var(--r-3) var(--r-6);
+  margin-bottom: var(--r-3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.sens-contexte p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.sens-lecon {
+  font-family: var(--fonte-titre);
+  font-size: 0.98rem;
+  color: var(--laiton-clair);
+  border-top: 1px solid var(--laiton-sombre);
+  padding-top: var(--r-2);
+}
+
+.sens-complement {
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto var(--r-4);
+  font-size: 1.02rem;
+}
+
+.sens-usagers {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.sens-usagers caption {
+  font-family: var(--fonte-cadran);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--texte-sourd);
+  padding-bottom: var(--r-2);
+}
+
+.sens-usagers th,
+.sens-usagers td {
+  border: 1px solid var(--laiton-sombre);
+  padding: var(--r-2) var(--r-3);
+  text-align: left;
+  vertical-align: top;
+}
+
+.sens-usagers thead th,
+.sens-usagers tbody th {
+  font-family: var(--fonte-titre);
+  font-weight: 400;
+  color: var(--laiton-clair);
+  background: rgba(201, 155, 74, 0.08);
+}
+
+/* Palier 2 : les trois familles */
+.famille-manche {
+  background: var(--papier);
+  color: var(--encre);
+  border-radius: var(--rayon-grand);
+  padding: var(--r-3) var(--r-6);
+  margin-bottom: var(--r-4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.famille-def {
+  margin: 0 0 var(--r-2);
+  font-size: 0.95rem;
+}
+
+.famille-sigle {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--laiton-sombre);
+  margin-right: var(--r-2);
+}
+
+.famille-question {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--encre-sourde);
+}
+
+.famille-reponses {
+  display: flex;
+  gap: var(--r-2);
+  margin-top: var(--r-3);
+  flex-wrap: wrap;
+}
+
+.famille-bouton {
+  flex: 1 1 0;
+  min-width: 10rem;
+  text-align: center;
+}
+
+/* Palier construire : l'histoire de la chaîne, enseignée avant l'exercice */
+.chaine-intro {
+  background: var(--papier);
+  color: var(--encre);
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6);
+  margin-bottom: var(--r-4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.chaine-familles {
+  display: flex;
+  gap: var(--r-2);
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.famille {
+  flex: 1 1 0;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-1);
+  border: 1.5px solid var(--laiton-sombre);
+  border-radius: var(--rayon);
+  padding: var(--r-2) var(--r-3);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.famille-nom {
+  font-family: var(--fonte-cadran);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--laiton-sombre);
+  font-weight: 600;
+}
+
+.famille-texte {
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.famille-fleche {
+  align-self: center;
+  font-size: 1.3rem;
+  color: var(--laiton-sombre);
+}
+
+.chaine-exemple {
+  margin: var(--r-3) 0 0;
+  font-style: italic;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Palier 3 : la banque de blocs */
+.blocs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--r-3);
+}
+
+.bloc {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--r-2);
+  text-align: center;
+  font-family: var(--fonte-corps);
+  font-size: 0.92rem;
+  padding: var(--r-3);
+  border-radius: var(--rayon);
+  border: 1px solid var(--laiton-sombre);
+  background: linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  color: var(--texte-clair);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.bloc:hover:not(:disabled) {
+  border-color: var(--laiton);
+}
+
+.bloc:disabled {
+  cursor: default;
+}
+
+.bloc-marque {
+  border: 2px solid var(--verre);
+  box-shadow: 0 0 14px rgba(127, 214, 194, 0.2);
+}
+
+.bloc-piege {
+  border-color: var(--alerte);
+}
+
+.bloc-reveal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-1);
+  border-top: 1px solid var(--laiton-sombre);
+  padding-top: var(--r-2);
+  width: 100%;
+}
+
+.bloc-nature {
+  font-family: var(--fonte-cadran);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nature-ok {
+  color: var(--verre);
+}
+
+.nature-piege {
+  color: var(--alerte);
+}
+
+.bloc-pourquoi {
+  font-size: 0.85rem;
+  color: var(--texte-sourd);
+  font-style: italic;
+}
+
+.mesurer-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--r-3);
+  margin: var(--r-6) 0 var(--r-4);
+  flex-wrap: wrap;
+}
+
+.action-principale {
+  background: var(--laiton);
+  color: var(--nuit);
+  border: none;
+  border-radius: 999px;
+  padding: var(--r-3) var(--r-8);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--fonte-corps);
+}
+
+.action-principale:hover {
+  background: var(--laiton-clair);
+}
+
+.action-secondaire {
+  background: none;
+  border: 1px solid var(--laiton-sombre);
+  border-radius: 999px;
+  color: var(--texte-clair);
+  padding: var(--r-3) var(--r-6);
+  font-family: var(--fonte-corps);
+}
+
+.action-secondaire:hover {
+  border-color: var(--laiton);
+}
+
+.feedback-carte {
+  max-width: 60ch;
+  margin: var(--r-4) auto 0;
+  border-radius: var(--rayon-grand);
+  padding: var(--r-4) var(--r-6);
+  text-align: center;
+}
+
+.feedback-juste {
+  border: 2px solid var(--ok);
+  background: rgba(111, 199, 138, 0.08);
+}
+
+.feedback-confusion {
+  border: 2px dashed var(--alerte);
+  background: rgba(224, 170, 78, 0.07);
+}
+
+.fluide {
+  border-color: var(--verre);
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(127, 214, 194, 0.12) 50%, transparent 100%),
+    rgba(111, 199, 138, 0.06);
+  background-size: 200% 100%;
+  animation: circule 2.4s linear infinite;
+}
+
+@keyframes circule {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fluide { animation: none; }
+}
+
+.feedback-verdict {
+  font-family: var(--fonte-titre);
+  font-size: 1.2rem;
+  color: var(--laiton-clair);
+  margin: 0 0 var(--r-2);
+}
+
+.feedback-carte p {
+  margin: 0 0 var(--r-3);
+}
+
+.feedback-maitrise {
+  font-family: var(--fonte-cadran);
+  font-size: 0.85rem;
+  color: var(--verre);
+}

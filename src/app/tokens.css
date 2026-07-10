@@ -1,0 +1,52 @@
+/*
+ * Tokens de la Manufacture de nuit (D9).
+ * La couleur porteuse de sens (ok / alerte) est toujours doublée
+ * d'une forme et d'un mot : jamais la couleur seule.
+ */
+:root {
+  /* Fond de nuit */
+  --nuit: #12181f;
+  --nuit-2: #1a222c;
+  --nuit-3: #222d3a;
+
+  /* Matières */
+  --laiton: #c99b4a;
+  --laiton-clair: #e6c37e;
+  --laiton-sombre: #8a672c;
+  --cuivre: #b07248;
+  --verre: #7fd6c2;
+  --verre-sombre: #2a4a44;
+
+  /* Papier de lecture (zone claire posée sur la nuit) */
+  --papier: #f2e8d5;
+  --papier-bord: #d8c8a8;
+  --encre: #2b2721;
+  --encre-sourde: #5c5346;
+
+  /* Textes sur nuit */
+  --texte-clair: #eae3d3;
+  --texte-sourd: #a7b0ba;
+
+  /* Sémantique qualité */
+  --ok: #6fc78a;
+  --ok-sombre: #274733;
+  --alerte: #e0aa4e;
+  --alerte-sombre: #4d3a1c;
+
+  /* Typographies */
+  --fonte-titre: "Marcellus", "Georgia", serif;
+  --fonte-corps: "Lora", "Georgia", serif;
+  --fonte-cadran: "JetBrains Mono", monospace;
+
+  /* Rythme */
+  --r-1: 0.25rem;
+  --r-2: 0.5rem;
+  --r-3: 0.75rem;
+  --r-4: 1rem;
+  --r-6: 1.5rem;
+  --r-8: 2rem;
+  --r-12: 3rem;
+
+  --rayon: 10px;
+  --rayon-grand: 16px;
+}
