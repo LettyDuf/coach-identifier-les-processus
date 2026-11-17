@@ -2,6 +2,10 @@
 
 Rituel de continuité de session. À mettre à jour en clôture de chaque session.
 
+## 2026-11-17 : passage en « tous droits réservés »
+
+Le fichier `LICENSE` (dédicace CC0 1.0) est remplacé par `COPYRIGHT.md` (© 2026 Lætitia Dufour, droit d'auteur canadien, sur le modèle de KPI4who). README complété, `package.json` et `package-lock.json` passés de `CC-BY-SA-4.0` (incohérent avec le LICENSE) à `UNLICENSED`. Les copies obtenues avant cette date restent régies par leurs termes d'origine.
+
 ## Clôture de session — 2026-07-09 (suite 18)
 
 Lætitia a choisi de poursuivre par la fiche "processus vu du client" et le
