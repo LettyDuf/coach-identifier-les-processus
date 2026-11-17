@@ -3,7 +3,7 @@ import tseslint from "typescript-eslint";
 
 /**
  * Garde-fou d'architecture hexagonale (complète le canari
- * tests/domain/isolation.test.ts par un retour dès l'écriture, pas
+ * tests/architecture/hexagonal.test.ts par un retour dès l'écriture, pas
  * seulement au lancement des tests) : le domaine ne doit jamais
  * importer React, le contenu, les adaptateurs ni l'app.
  */
